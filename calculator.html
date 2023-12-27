@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Calculator</title>
+	<style type="text/css">
+		.Calculator{
+			padding: 10px;
+			border-radius: 10px;
+			height: 380px;
+			width: 400px;
+			margin: auto;
+			background-color: grey;
+			box-shadow: rgba(0, 0, 0, 2.0)0px 10px 20px,rgba(160, 153, 153, 0.23)0px 6px 8px;
+		}
+		.dispaly-box{
+			font-family: 'orbitron',sans-serif;
+			background-color: aqua;
+			border: 1px solid black;
+			color: black;
+			border-radius: 5px;
+			width: 98%;
+			height: 65%;
+
+		}
+		#btn{
+			background-color: lightblue;
+		}
+		input[type=button]{
+			font-family: 'orbitron',sans-serif;
+			background-color: mistyrose;
+			border: 1px solid green;
+			color: rgb(84, 116, 85);
+			width:100% ;
+			height: 70%;
+			border-radius: 5px;
+			outline: none;
+		}
+		input:active[type=button]{
+			background-color: #504f52;
+			box-shadow: inset 0px 0px 5px #c1c1c1;
+		}
+		body{
+			background-color: darkcyan;
+		}
+		</style>
+</head>
+<body>
+	<table class="Calculator">
+		<tr>
+			<td colspan="3"><input type="text" class="dispaly-box" id="result" disabled></td>
+			<td><input type="button" value="C" id="btn" onclick="clearScreen()"></td>
+		</tr>
+		<tr>
+			<td><input type="button" value="1" onclick="dispaly('1')"></td>
+			<td><input type="button" value="2" onclick="dispaly('2')"></td>
+			<td><input type="button" value="3" onclick="dispaly('3')"></td>
+			<td><input type="button" value="/" onclick="dispaly('/')"></td>
+		</tr>
+		<tr>
+			<td><input type="button" value="4" onclick="dispaly('4')"></td>
+			<td><input type="button" value="5" onclick="dispaly('5')"></td>
+			<td><input type="button" value="6" onclick="dispaly('6')"></td>
+			<td><input type="button" value="-" onclick="dispaly('-')"></td>
+		</tr>
+		<tr>
+			<td><input type="button" value="7" onclick="dispaly('7')"></td>
+			<td><input type="button" value="8" onclick="dispaly('8')"></td>
+			<td><input type="button" value="9" onclick="dispaly('9')"></td>
+			<td><input type="button" value="+" onclick="dispaly('+')"></td>
+		</tr>
+		<tr>
+			<td><input type="button" value="." onclick="dispaly('.')"></td>
+			<td><input type="button" value="0" onclick="dispaly('0')"></td>
+			<td><input type="button" value="=" onclick="calculate()"></td>
+			<td><input type="button" value="*" onclick="dispaly('*')"></td>
+		</tr>
+	</table>
+	<script type="text/javascript">
+		function dispaly(value) {
+			document.getElementById('result').value+=value;
+		}
+		function clearScreen(){
+			document.getElementById('result').value="";
+		}
+		function calculate(value){
+			var p=document.getElementById('result').value;
+			var q=eval(p);
+			document.getElementById('result').value=q;
+
+		}
+
+	</script>
+</body>
+</html>
